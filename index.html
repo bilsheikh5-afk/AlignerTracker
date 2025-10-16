@@ -57,31 +57,42 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   margin-bottom: 15px;
 }
+.logo-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f9fcff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom: 15px;
+}
 
 .logo-title {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.logo-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  object-fit: contain;
+  gap: 16px;
 }
 
 .header-text h1 {
   margin: 0;
-  font-size: 1.4em;
+  font-size: 1.6em;
   color: #113f67;
   font-weight: 700;
 }
 
 .header-text p {
-  margin: 2px 0 0;
-  font-size: 0.9em;
-  color: #666;
+  margin: 3px 0 0;
+  font-size: 1em;
+  color: #555;
 }
 
 .status-badge {
@@ -668,17 +679,16 @@
 <body>
     <div class="app-container">
         <!-- Header -->
-        <div class="header">
-        <div class="logo-icon">
-  <img src="ClearPro.png" alt="ClearPro Logo" style="height:40px; border-radius:8px;">
+   <div class="header">
+  <div class="logo-title">
+    <img src="ClearPro.png" alt="ClearPro Logo" class="logo-icon">
+    <div class="header-text">
+      <h1>AlignerTracker</h1>
+      <p>Case:
+         <span class="status-badge status-active">Active</span></p>
+    </div>
+  </div>
 </div>
-        </div>
-            <div class="header-text">
-                <h1>AlignerTracker</h1>
-                <p>Case: AJ-2024-028 | Emily Johnson | <span class="status-badge status-active">Active</span></p>
-            </div>
-        </div>
-
         <div class="main-content">
             <div class="dashboard-grid">
                 <!-- Left Column -->
