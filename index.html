@@ -691,6 +691,32 @@
 </div>
         <div class="main-content">
             <div class="dashboard-grid">
+</div> <!-- end of .dashboard-grid -->
+
+<!-- 📸 Photos Page -->
+<div id="photos-page" class="page" style="display:none;">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><i class="fas fa-camera"></i> Photo Gallery</h2>
+    </div>
+    <div id="photo-gallery" style="display:flex; flex-wrap:wrap; gap:12px;"></div>
+    <button class="btn btn-primary" onclick="chooseMultiplePhotos()">Add Photos</button>
+  </div>
+</div>
+
+<!-- 📅 Calendar Page -->
+<div id="calendar-page" class="page" style="display:none;">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><i class="fas fa-calendar-alt"></i> Appointment Calendar</h2>
+    </div>
+    <div style="padding: 20px;">
+      <h3>Select a date</h3>
+      <input type="date" id="appointment-date-picker" onchange="showAppointments(this.value)">
+      <div id="appointment-list" style="margin-top:10px;"></div>
+    </div>
+  </div>
+</div>
                 <!-- Left Column -->
                 <div>
                     <!-- Current Aligner Status -->
@@ -1704,6 +1730,32 @@ window.addEventListener('load', () => {
   migrateOldPhotoDates();
   renderGallery();
 });
+// 🔄 Navigation handling
+document.querySelectorAll('.bottom-nav .nav-item').forEach((item, index) => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    // Hide everything
+    document.querySelectorAll('.page, .dashboard-grid').forEach(page => page.style.display = 'none');
+
+    // Show the correct one
+    if (index === 0) document.querySelector('.dashboard-grid').style.display = 'grid';
+    else if (index === 1) document.getElementById('photos-page').style.display = 'block';
+    else if (index === 2) document.getElementById('calendar-page').style.display = 'block';
+    else if (index === 3) alert("Reports feature coming soon!");
+  });
+});
+
+// 📅 Calendar appointment display
+function showAppointments(date) {
+  const list = document.getElementById('appointment-list');
+  list.innerHTML = `<p>Appointments for <strong>${date}</strong>:</p>
+    <ul>
+      <li>No appointments scheduled.</li>
+    </ul>`;
+}
 </script>
 </body>
 </html>
