@@ -1,6 +1,6 @@
 {
-  "name": "ClearPro",
-  "short_name": "ClearPro",
+  "name": "AlignerTracker",
+  "short_name": "AlignerTracker",
   "description": "Aligner treatment progress tracker.",
   "start_url": "/",
   "display": "standalone",
